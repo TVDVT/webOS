@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body style="background-color: #D8F0FB; font-family: DejaVu Sans Mono, monospace; color: #1a237e;margin:20px; background-image: url('https://wallpapers.com/images/hd/thick-white-smoke-aesthetic-light-blue-ysuzkg6v1v2nowtl.jpg'); background-size: cover;">
+    <div class="window" id="welcome" style="width:350px; top:60%; left:70%; height:350px">
+
+      <div class="windowheader" id="welcomeheader">
+        <div>
+          <p>(●__●)</p>
+        </div>
+
+        <div class="buttons">
+          <div class="closebutton" id="welcomeclose"></div>
+          <div class="openbutton" id="welcomeopen"></div>
+        </div>
+      </div>
+      <div style="padding:0 20px 20px 20px;">
+        <h2>Welcome!</h2>
+        <p>I'm Thao Vi!</p>
+        <p>I usually spend my days listening to true crime stories while solving puzzles.</p>
+        <p>I don't know if you have noticed, but my favorite color is blue.    I also really enjoy baking! My favorite dessert is macarons :D</p>
+      </div>
+    </div>
+
+    <div id="top" style="height:50px; width:100%; position:absolute; top:0; left:0; box-sizing:border-box; background-color:rgba(43, 69, 90, 0.25); backdrop-filter: blur(5px); color:white;"> 
+      <div style="display: flex;align-items: center;justify-content: space-between; height:100%; width:100%;">
+        <div style="margin-left:30px;">
+            TVD
+          </div>
+          <div id="timeElement" style="margin-right:30px; ">
+            Time
+          </div>
+      </div> 
+      <div style=" display: flex;align-items: center;justify-content: center; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size: 24px;">
+           (●__●)
+      </div>
+    </div>
+    <script>
+      function updateTime(){
+        var currentTime = new Date().toLocaleString();
+        var timeText=document.querySelector("#timeElement");
+        timeText.innerHTML=currentTime;   
+      }
+      setInterval(updateTime, 1000);
+    </script>
+
+    <div id="desktopApps" style="padding-top: 64px; padding-left: 16px;">
+      <div class="appIcon" id="notesIcon">
+        <img src="./Images/notes.png" style="width: 64px; height: 64px; border-radius: 16px;">
+        <p style="margin: 0px; color:#2E4659; ">TrueNotes</p>
+      </div>
+
+      <div class="appIcon" id="skeletaleIcon">
+        <img src="./Images/skeletale.png" style="width: 64px; height: 64px; border-radius: 16px;">
+        <p style="margin: 0px; color:#2E4659; ">Skeletale</p>
+      </div>
+    </div>  
+    <div class="window" id="notes" style=" top:40%; left:30%; width:500px; height:400px; display:none;">
+      <div class="windowheader" id="notesheader">
+        <div>
+          <p>TRUENOTES</p>
+        </div>
+
+        <div class="buttons">
+          <div class="closebutton" id="notesclose"></div>
+          <div class="openbutton" id="notesopen"></div>
+        </div>
+        </div>
+          <div class="notesContent">
+            <div class="notesMain" id="notesContent" ></div>
+            <div class="notesSidebar" id="notesSidebar"></div>
+          </div>
+    </div>
+    <div class="window" id="skeletale" style=" top:50%; left:30%; display:none; width:550px; height:530px;">
+      <div class="windowheader" id="skeletaleheader">
+          <div>
+            <p>SKELETALE</p>
+          </div>
+          <div class="buttoncontainer"> 
+            <div class="buttons">
+                <div class="closebutton" id="skeletaleclose"></div>
+                <div class="openbutton" id="skeletaleopen"></div>
+            </div>
+          </div>
+      </div>
+      <div class="skeletaleBody">
+        <div class="skeletaleMain">
+          <div class="skeletaleContent" id="skeletaleContent" style="padding:0 20px 20px 20px;"></div>
+          <div class="skeletonImage no" id="skeletonImage">
+            <img src="./Images/skeleton no bg.png" alt="Skeleton">
+            <div class="heart" 
+            id="heart"> 
+              <img src="./Images/heart.png" alt="Heart">
+            </div>
+          </div>
+        </div>
+          <div class="buttonContainer">
+            <div class="backbutton no" id="backbutton" onclick="backSkel()">
+            < BACK
+            </div>
+            <div class="nextbutton" id="nextbutton" onclick="nextSkel()">
+            NEXT >
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+
+</html>
