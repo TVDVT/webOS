@@ -1,20 +1,20 @@
-#WebOs
+# WebOS
 A personal WebOs presenting me!
 
-##Features
+## Features
 - A top-bar with a live clock
 - A TrueNotes app
 - A Skeletale app 
 - Draggable windows
 - Closable windows
 
-##Demo
+## Demo
 https://tvdvt.github.io/webOS/
 
-##Technologies
+## Technologies
 JavaScript, CSS, HTML
 
-##Future plans
+## Future plans
 - Better app layout
 - More animations
 - More apps
