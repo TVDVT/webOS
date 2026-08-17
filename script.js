@@ -3,6 +3,7 @@ var selectedIcon = undefined;
 var topBar=document.querySelector("#top");setupWindow("welcome");
 setupWindow("skeletale");
 setupWindow("notes");
+setupWindow("countdown");
 var nextbutton = document.querySelector("#nextbutton");
 var backbutton = document.querySelector("#backbutton");
 var skeletonImage = document.querySelector("#skeletonImage");
@@ -41,7 +42,7 @@ var skel = [
    ` 
   },
     {
-   title:"Eye Cavities",
+   title:"Eye Sockets",
    heartTop: 37,
    heartLeft: 88,
    content:`
@@ -129,29 +130,66 @@ var skel = [
 
 var content = [
   {
+    title:"Hello Kitty",
+    date: "23/06/2026",
+    content:`
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
+    <p>badabim badaboom (iykyk)</p>
+    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
+    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
+    `
+  },
+  {
+    title:"Itaewon Tragedy",
+    date: "23/06/2026",
+    content:`
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
+    <p>badabim badaboom (iykyk)</p>
+    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
+    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
+    `
+  },
+    {
+    title:"e",
+    date: "23/06/2026",
+    content:`
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
+    <p>badabim badaboom (iykyk)</p>
+    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
+    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
+    `
+  },
+  {
+    title:"Itaewon Tragedy",
+    date: "23/06/2026",
+    content:`
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
+    <p>badabim badaboom (iykyk)</p>
+    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
+    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
+    `
+  },
+  {
+    title: "Real Life Squid Game",
+    content:`
+    <h2>Real Life Squid Game</h2>
+    <p>I really liked this one because I had just finished the second season and was eagerly waiting for the third one. Hearing stories like this really make me grateful to have the life I have right now.</p>`
+  },
+  {
     title:"About",
     date: "22/06/2026",
     content: `
     <h2>About</h2>
     <p>I really enjoy listening to true crime stories and here you will find my thoughts about some of these stories.</p>
     <p>My favorite podcasts are
-    <a href="https://open.spotify.com/show/2DZwvzn6Z3xCFZrwZGDrbj?si=aa0883a2a0d7481f">Rotten Mango</a> and
-    <a href="https://www.youtube.com/@LivMoietco">Liv</a> (a French Youtuber)</p>`
-  },
-  {
-    title:"Itaewon",
-    date: "23/06/2026",
-    content:`
-    <h2><a href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
-    <p>badabim badaboom (iykyk)</p>
-    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
-    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
-    `
-  },
+    <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/show/2DZwvzn6Z3xCFZrwZGDrbj?si=aa0883a2a0d7481f">Rotten Mango</a> and
+    <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@LivMoietco">Liv</a> (a French Youtuber)</p>`
+  },    
 ]
 function setNotesContent(index) {
   var notesContent = document.querySelector("#notesContent")
   notesContent.innerHTML=content[index].content
+
 }
 setSkelContent(0)
 setNotesContent(0)
@@ -166,19 +204,18 @@ function setSkelContent(index) {
 }
 
 function addToSideBar(index) {
-  var sidebar=document.querySelector("#notesSidebar");
+  var sidebar=document.querySelector("#feet");
   var note=content[index];
+
   var newDiv=document.createElement("div");
+
+  newDiv.className = "hoverbig footprints " + (index%2 === 0? "left":"right");
+  newDiv.title=note.title;
   newDiv.innerHTML = `
-  <p style="margin:0px;">
-    ${note.title}
-  </p>
-  <p style="font-size: 12px; margin:0px;">
-    ${note.date}
-  -----------
-  </p>
-  `;
+    <img src="./Images/footprints.png" alt="footprints"> `;
   newDiv.addEventListener("click", function() {
+      notesSidebar.classList.add("compressed");
+      notesContent.classList.remove("no");
       setNotesContent(index);
     });
   sidebar.appendChild(newDiv);}
@@ -186,6 +223,7 @@ function addToSideBar(index) {
 for (let i = 0; i < content.length; i++) {
     addToSideBar(i)
 }
+
 function nextSkel() {
   if (skelIndex < skel.length-1){
     skelIndex++;
