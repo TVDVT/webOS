@@ -1,5 +1,6 @@
-var countdowns = [];
-var nextCountdownId = 0;
+var showadd = document.querySelector("#showadd");
+var newcd = document.querySelector("#newcd");
+var list = document.querySelector("#list");
 
 var dateInput = document.querySelector("#newcd input[type='date']");
 var timeInput = document.querySelector("#newcd input[type='time']");
@@ -12,7 +13,20 @@ var secondButton = document.querySelector("#second");
 
 var addButton = document.querySelector("#addbutton");
 
+var countdowns = [];
+var nextCountdownId = 0;
 var selectedPrecision = "second";
+
+updateCdList();
+showadd.addEventListener("click", function() {
+    newcd.classList.remove("no");
+
+    dateInput.value = "";
+    timeInput.value = "";
+    eventInput.value = "";
+
+    selectedPrecision = "second";
+});
 
 dayButton.addEventListener("click", function() {
     selectedPrecision = "day";
@@ -50,15 +64,59 @@ function addCd() {
 
     countdowns.push(countdown);
 
-    console.log(countdowns);
+    updateCdList();
 
     return countdown;
 }
 
+function updateCdList() {
+    if (countdowns.length === 0) {
+        list.innerHTML = `
+            <p style="text-align:center;">
+                Empty.<br>
+                Add a countdown!
+            </p>
+        `;
+        return;
+    }
 
-// ========================================
-// CREATE COUNTDOWN WINDOW
-// ========================================
+    list.innerHTML = "";
+
+    countdowns.forEach(function(countdown) {
+
+        var item = document.createElement("div");
+
+        item.className = "cdListItem";
+        item.dataset.id = countdown.id;
+
+        item.innerHTML = `
+            <div class="cdListInfo">
+                <b>${countdown.event}</b>
+                <small>${countdown.date} ${countdown.time}</small>
+            </div>
+
+            <div class="cdListButtons">
+                <button class="showCd">SHOW</button>
+                <button class="editCd">EDIT</button>
+                <button class="deleteCd">×</button>
+            </div>
+        `;
+
+        item.querySelector(".showCd").addEventListener("click", function() {
+            showCd(countdown.id);
+        });
+
+        item.querySelector(".editCd").addEventListener("click", function() {
+            editCd(countdown.id);
+        });
+
+        item.querySelector(".deleteCd").addEventListener("click", function() {
+            deleteCd(countdown.id);
+        });
+
+        list.appendChild(item);
+    });
+}
 
 function showCd(id) {
 
@@ -70,16 +128,22 @@ function showCd(id) {
         return;
     }
 
-    // Create the window
+    var existingWindow = document.querySelector(
+        '.cdDisplay[data-id="' + id + '"]'
+    );
+
+    if (existingWindow) {
+        openWindow(existingWindow);
+        return;
+    }
+
     var cdWindow = document.createElement("div");
 
     cdWindow.className = "window cdDisplay";
 
-    // Give the window the countdown's ID
     cdWindow.dataset.id = countdown.id;
 
-    // Put the window somewhere on the desktop
-    cdWindow.style.width = "300px";
+    cdWindow.style.width = "200px";
     cdWindow.style.height = "220px";
     cdWindow.style.top = "50%";
     cdWindow.style.left = "60%";
@@ -92,15 +156,15 @@ function showCd(id) {
             </div>
 
             <div class="buttons">
-                <div class="closebutton"></div>
-                <div class="openbutton"></div>
+                <div class="closebutton hoverbig"></div>
+                <div class="openbutton hoverbig"></div>
             </div>
 
         </div>
 
-        <div class="countdownDisplayContent">
+        <div class="countdownDisplayContent center">
 
-            <p class="countdownEvent">
+            <p class="countdownEvent center">
                 ${countdown.event}
             </p>
 
@@ -113,22 +177,75 @@ function showCd(id) {
 
     document.body.appendChild(cdWindow);
 
+    var closeButton = cdWindow.querySelector(".closebutton");
+    var openButton = cdWindow.querySelector(".openbutton");
 
-    // Make the window behave like your other windows
-    makeClosable(cdWindow);
+    closeButton.addEventListener("click", function(e) {
+        e.stopPropagation();
+        cdWindow.style.display = "none";
+    });
+
+    openButton.addEventListener("click", function(e) {
+        e.stopPropagation();
+        cdWindow.style.display = "block";
+    });
+
     dragElement(cdWindow);
 
-    // Bring it to the front
     openWindow(cdWindow);
-
-    // Display countdown immediately
+    addWindowTapHandling(cdWindow)
     updateDisplay(cdWindow, countdown);
 }
 
+var editingId = null;
+function editCd(id) {
 
-// ========================================
-// CALCULATE + DISPLAY COUNTDOWN
-// ========================================
+    var countdown = countdowns.find(function(cd) {
+        return cd.id === id;
+    });
+
+    if (!countdown) {
+        return;
+    }
+
+    editingId = id;
+
+    newcd.classList.remove("no");
+
+    dateInput.value = countdown.date;
+    timeInput.value = countdown.time;
+    eventInput.value = countdown.event;
+
+    selectedPrecision = countdown.precision;
+
+    addButton.textContent = "UPDATE";
+}
+
+function deleteCd(id) {
+
+    countdowns = countdowns.filter(function(cd) {
+        return cd.id !== id;
+    });
+
+    var displayWindow = document.querySelector(
+        '.cdDisplay[data-id="' + id + '"]'
+    );
+
+    if (displayWindow) {
+        displayWindow.remove();
+    }
+
+    updateCdList();
+}
+
+function clearForm() {
+
+    dateInput.value = "";
+    timeInput.value = "";
+    eventInput.value = "";
+
+    selectedPrecision = "second";
+}
 
 function updateDisplay(cdWindow, countdown) {
 
@@ -140,8 +257,6 @@ function updateDisplay(cdWindow, countdown) {
 
     var distance = target - now;
 
-
-    // Countdown finished
     if (distance <= 0) {
 
         cdWindow.querySelector(".countdownTime").innerHTML =
@@ -150,8 +265,6 @@ function updateDisplay(cdWindow, countdown) {
         return;
     }
 
-
-    // Calculate time
     var days = Math.floor(
         distance / (1000 * 60 * 60 * 24)
     );
@@ -171,73 +284,122 @@ function updateDisplay(cdWindow, countdown) {
         / 1000
     );
 
+    var text = `
+    <div>
+        <div class="case center">${days}</div>
+        <div class="label">D</div>
+    </div>
+    `;
 
-    // Start with days
-    var text = `${days}d`;
-
-
-    // Add precision
     if (countdown.precision === "hour") {
-
-        text += ` ${hours}h`;
-
+        text += `
+        <div>
+            <div class="case center">${hours}</div>
+            <div class="label">H</div>
+        </div>
+        `;
     }
 
     else if (countdown.precision === "minute") {
-
-        text += ` ${hours}h ${minutes}m`;
-
+        text += `
+        <div>
+            <div class="case center">${hours}</div>
+            <div class="label">H</div>
+        </div>
+        <div>
+            <div class="case center">${minutes}</div>
+            <div class="label">M</div>    
+        </div>   
+        `;
     }
 
     else if (countdown.precision === "second") {
-
-        text += ` ${hours}h ${minutes}m ${seconds}s`;
-
+        text += `
+        <div>
+            <div class="case center">${hours}</div>
+            <div class="label">H</div>
+        </div>
+        <div>
+            <div class="case center">${minutes}</div>
+            <div class="label">M</div> 
+        </div> 
+        <div>
+            <div class="case center">${seconds}</div>
+            <div class="label">S</div>    
+        </div>        
+        `;
     }
-
 
     cdWindow.querySelector(".countdownTime").innerHTML = text;
 }
 
-
-// ========================================
-// ADD BUTTON
-// ========================================
-
 addButton.addEventListener("click", function() {
+    if (editingId !== null) {
+
+        var countdown = countdowns.find(function(cd) {
+            return cd.id === editingId;
+        });
+
+        if (!countdown) return;
+
+        countdown.date = dateInput.value;
+        countdown.time = timeInput.value;
+        countdown.event = eventInput.value;
+        countdown.precision = selectedPrecision;
+
+        var displayWindow = document.querySelector(
+            '.cdDisplay[data-id="' + editingId + '"]'
+        );
+
+        if (displayWindow) {
+
+            displayWindow.querySelector(".countdownEvent").textContent =
+                countdown.event;
+
+            displayWindow.querySelector(".windowheader p").textContent =
+                countdown.event;
+
+            updateDisplay(displayWindow, countdown);
+        }
+
+        updateCdList();
+
+        editingId = null;
+        addButton.textContent = "ADD";
+
+        newcd.classList.add("no");
+        clearForm();
+
+        return;
+    }
 
     var countdown = addCd();
 
-    // If the countdown was successfully created
     if (countdown) {
 
         showCd(countdown.id);
 
+        newcd.classList.add("no");
+
+        clearForm();
     }
-
 });
-
-
-// ========================================
-// UPDATE ALL COUNTDOWN WINDOWS
-// ========================================
 
 setInterval(function() {
 
     document.querySelectorAll(".cdDisplay").forEach(function(cdWindow) {
 
-        var id = cdWindow.dataset.id;
+        var id = Number(cdWindow.dataset.id);
 
         var countdown = countdowns.find(function(cd) {
-            return cd.id == id;
+            return cd.id === id;
         });
 
         if (countdown) {
-
             updateDisplay(cdWindow, countdown);
-
         }
 
     });
 
 }, 1000);
+

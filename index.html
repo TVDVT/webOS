@@ -52,7 +52,7 @@
         <p style="margin: 0px; color:#2E4659; ">TrueNotes</p>
       </div>
       <div class="appIcon" id="countdownIcon">
-        <img src="./Images/notes.png" style="width: 64px; height: 64px; border-radius: 16px;">
+        <img src="./Images/count.png" style="width: 64px; height: 64px; border-radius: 16px;">
         <p style="margin: 0px; color:#2E4659; ">COUNTDOWN</p>
       </div>
 
@@ -67,29 +67,47 @@
         <div>
           <p>COUNTDOWN</p>
         </div>
-        <div class="buttons">
+        <div class="buttons"> 
           <div class="closebutton hoverbig" id="countdownclose"></div>
           <div class="openbutton hoverbig" id="countdownopen"></div>
         </div>
       </div>
       <div class="cdmain">
-        <div class="newcd" id="newcd">
-          <input type="date" name="date"/>
-          <input type="time" name="time"/>
-          <input type="text" name="event" placeholder="Event"/>
-          <div class="dropdown">
-            <button class="dropbtn">Precision</button>
-            <div class="dropdown-content">
-              <a id="day">Day</a>
-              <a id="hour">Hour</a>
-              <a id="minute">Minute</a>
-              <a id="second">Second</a>
+        <div class="cdlist" id="cdlist">
+          <div id="cdheader">
+            <div>Add a countdown</div>
+            <div id="showadd" title="Add Countdown">
+              +
             </div>
           </div>
-          <div class="button" id="addbutton">ADD</div>
+        <div class="newcd no" id="newcd">
+          <p style="text-align:center"> Set New Countdown </p>
+          <input type="text" name="event" placeholder="Event" class="eventinput"/>
+          <div class="buttons" id="inputs">
+            <input type="date" name="date" class="dateinput"/>
+            <input type="time" name="time" class="timeinput"/>
+          </div>
+          <div class="buttons">
+            <div class="dropdown">
+              <button class="dropbtn">Precision</button>
+              <div class="dropdown-content">
+                <a id="day">Day</a>
+                <a id="hour">Hour</a>
+                <a id="minute">Minute</a>
+                <a id="second">Second</a>
+              </div>
+            </div>
+            <div class="dropbtn hoverbig" id="addbutton">ADD</div>
+          </div>
         </div>
+          <div id="list">
+            <div>Your Countdowns</div>
+            <!-- cd name - show - edit -->
+          </div>
+        </div>
+
+
         <div class="cd">
-          <p id="demo"> </p>
         </div>
 
       </div>
@@ -120,7 +138,7 @@
           <div>
             <p>SKELETALE</p>
           </div>
-          <div class="buttoncontainer"> 
+          <div class="buttonContainer center"> 
             <div class="buttons">
                 <div class="closebutton hoverbig" id="skeletaleclose"></div>
                 <div class="openbutton hoverbig" id="skeletaleopen"></div>
@@ -138,7 +156,7 @@
             </div>
           </div>
         </div>
-          <div class="buttonContainer">
+          <div class="buttonContainer center">
             <div class="button no hoverbig" id="backbutton" onclick="backSkel()">
             < BACK
             </div>

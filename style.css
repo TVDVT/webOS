@@ -1,23 +1,156 @@
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label {
+    text-align: center;
+}
+
+.case {
+    padding:10px;
+    border: solid 1px rgba(37, 115, 232, 0.42);
+    border-radius: 4px;
+    margin: 3px;
+    background-color: white;
+    box-shadow: rgba(16, 16, 241, 0.402);
+}
+
+.countdownTime {
+    display: flex;
+    flex-direction: row;
+}
+
+.countdownDisplayContent {
+    flex-direction: column;
+}
+
+.countdownEvent {
+    font-size: larger;
+    font-weight: bold;
+    padding: 20px;
+    width: 125px;
+    border-radius: 16px;
+    margin: 10px;
+    margin-bottom: 0px;
+    background-color: white;
+}
+.countdownTime {
+    font-size: large; 
+}
+
+.newcd {
+    margin-bottom: 5px;
+}
+#list {
+    flex:1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5x;
+}
+#inputs {
+    margin:0px 0px 5px 0;
+}
+.dateinput {
+    border-radius: 4px;
+}
+.eventinput{
+    width: 210px;
+    margin: 10px 0;
+}
+#showadd:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+.cdListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 8px;
+}
+.cdmain {
+    padding: 10px;
+    height: calc(100% - 45px);
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.cdListInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cdListInfo b {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cdListInfo small {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.cdListButtons {
+    display: flex;
+    gap: 3px;
+}
+
+.cdListButtons button {
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: 6px;
+    background: mintcream;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 9px;
+    padding: 4px;
+}
+
+.cdListButtons button:hover {
+    background: white;
+}
+#cdheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+#showadd {
+    border: solid 1px rgb(199, 196, 196);
+    font-size: 24px;
+    border-radius: 8px;
+    padding: 4px 4px 8px 8px; 
+    background-color: white;
+    cursor: pointer;
+}
 .cdmain {
     padding: 15px;
 }
-/* Dropdown Button */
+
 .dropbtn {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   padding: 7px;
   font-size: 12px;
   border: solid 1px gray;
-  border-radius: 12px;
+  border-radius: 4px;
+  cursor:pointer;
 }
 
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -27,7 +160,6 @@
   z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -36,13 +168,10 @@
   cursor: pointer;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd;}
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block; border-radius: 3px;}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #ddd;}
 .hoverbig:hover {
     transform: scale(1.2);
@@ -97,7 +226,7 @@
 }
 
 .windowheader {
-    height:25px;
+    height:20px;
     display:flex;
     margin:0;
     padding:10px;
@@ -196,10 +325,7 @@
 }
 
 .buttonContainer {
-    display: flex;
-    justify-content: center;
     gap:16px;
-    align-items: center;
     flex-shrink: 0;
 }
 
@@ -248,6 +374,29 @@
     transition: top 0.3s, left 0.3s;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  border-radius: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 16px;
+  height: 125px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #94b0ff;
+  border-radius: 16px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 
 
