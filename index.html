@@ -6,7 +6,7 @@
   <body style="background-color: #D8F0FB; font-family: DejaVu Sans Mono, monospace; color: #1a237e;margin:20px; background-image: url('https://wallpapers.com/images/hd/thick-white-smoke-aesthetic-light-blue-ysuzkg6v1v2nowtl.jpg'); background-size: cover;">
     <div class="window" id="welcome" style="width:350px; top:60%; left:70%; height:350px">
 
-      <div class="windowheader" id="welcomeheader">
+      <div class="windowheader space-between" id="welcomeheader">
         <div>
           <p>(●__●)</p>
         </div>
@@ -55,6 +55,10 @@
         <img src="./Images/count.png" style="width: 64px; height: 64px; border-radius: 16px;">
         <p style="margin: 0px; color:#2E4659; ">COUNTDOWN</p>
       </div>
+      <div class="appIcon" id="todoIcon">
+        <img src="./Images/count.png" style="width: 64px; height: 64px; border-radius: 16px;">
+        <p style="margin: 0px; color:#2E4659; ">To Do List</p>
+      </div>
 
       <div class="appIcon" id="skeletaleIcon">
         <img src="./Images/skeletale.png" style="width: 64px; height: 64px; border-radius: 16px;">
@@ -62,8 +66,29 @@
       </div>
     </div> 
 
-    <div class="window" id="countdown" style=" top:40%; left:30%; width:250px; height:300px;">
-      <div class="windowheader" id="countdownheader">
+    <div class="window" id="todo" style=" top:50%; left:30%; width:250px; height:300px;">
+      <div class="windowheader space-between" id="todoheader">
+        <div>
+          <p>TO DO</p>
+        </div>
+        <div class="buttons"> 
+          <div class="closebutton hoverbig" id="todoclose"></div>
+          <div class="openbutton hoverbig" id="todoopen"></div>
+        </div>
+      </div>
+      <div class="todomain">
+        <div class="space-between todoheader">
+          <input type="text" name="task" placeholder="What do you have to do?" class="todoinput"/>
+          <div id="todoadd">+</div>
+        </div> 
+        <div class="todolist" id="todolist">
+          To do: 
+        </div>
+      </div>
+    </div> 
+
+    <div class="window" id="countdown" style="display:none; top:40%; left:30%; width:250px; height:300px;">
+      <div class="windowheader space-between" id="countdownheader">
         <div>
           <p>COUNTDOWN</p>
         </div>
@@ -74,7 +99,7 @@
       </div>
       <div class="cdmain">
         <div class="cdlist" id="cdlist">
-          <div id="cdheader">
+          <div id="cdheader" class="space-between">
             <div>Add a countdown</div>
             <div id="showadd" title="Add Countdown">
               +
@@ -105,16 +130,13 @@
             <!-- cd name - show - edit -->
           </div>
         </div>
-
-
         <div class="cd">
         </div>
-
       </div>
     </div> 
 
     <div class="window" id="notes" style=" top:40%; left:30%; width:500px; height:400px; display:none;">
-      <div class="windowheader" id="notesheader">
+      <div class="windowheader space-between" id="notesheader">
         <div>
           <p>TRUENOTES</p>
         </div>
@@ -134,7 +156,7 @@
           </div>
     </div>
     <div class="window" id="skeletale" style=" top:50%; left:30%; display:none; width:550px; height:530px;">
-      <div class="windowheader" id="skeletaleheader">
+      <div class="windowheader space-between" id="skeletaleheader">
           <div>
             <p>SKELETALE</p>
           </div>

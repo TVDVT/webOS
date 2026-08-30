@@ -73,7 +73,7 @@ function updateCdList() {
     if (countdowns.length === 0) {
         list.innerHTML = `
             <p style="text-align:center;">
-                Empty.<br>
+                Countdown list empty.<br>
                 Add a countdown!
             </p>
         `;
@@ -86,7 +86,7 @@ function updateCdList() {
 
         var item = document.createElement("div");
 
-        item.className = "cdListItem";
+        item.className = "cdListItem space-between";
         item.dataset.id = countdown.id;
 
         item.innerHTML = `

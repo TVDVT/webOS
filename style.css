@@ -1,9 +1,38 @@
+.todolist {
+    overflow-y:auto;
+    height:100%;
+}
+
+.todomain {
+    padding: 10px;
+}
+
+#todoadd {
+    border-radius: 8px;
+    padding: 0 4px;
+    cursor: pointer;
+    border: solid 1px;
+    background-color: aliceblue;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
+#feet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .label {
     text-align: center;
 }
@@ -64,9 +93,6 @@
 }
 
 .cdListItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 8px;
     padding: 8px;
     margin-bottom: 8px;
@@ -115,9 +141,6 @@
     background: white;
 }
 #cdheader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 15px;
     border-radius: 4px;
     background-color: aliceblue;
@@ -131,6 +154,7 @@
     padding: 4px 4px 8px 8px; 
     background-color: white;
     cursor: pointer;
+    max-width: 20px;
 }
 .cdmain {
     padding: 15px;
@@ -227,15 +251,12 @@
 
 .windowheader {
     height:20px;
-    display:flex;
     margin:0;
     padding:10px;
     background:rgba(43, 69, 90, 0.15);
     color:white;
     cursor:move;
     border-radius:16px 16px 0 0;
-    align-items: center;
-    justify-content: space-between;
     border-bottom:solid 1px rgba(0,0,0,0.25); 
 }
 

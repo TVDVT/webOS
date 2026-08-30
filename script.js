@@ -4,10 +4,115 @@ var topBar=document.querySelector("#top");setupWindow("welcome");
 setupWindow("skeletale");
 setupWindow("notes");
 setupWindow("countdown");
+setupWindow("todo")
 var nextbutton = document.querySelector("#nextbutton");
 var backbutton = document.querySelector("#backbutton");
 var skeletonImage = document.querySelector("#skeletonImage");
 var skelIndex=0
+
+var todoInput = document.querySelector("input[name='task']");
+var todolist = document.querySelector("#todolist");
+var todos=[];
+var todoadd = document.querySelector("#todoadd");
+var nexttodo=0;
+
+todoInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        addtask();
+    }
+});
+todoadd.addEventListener("click", function() {
+  addtask();
+});
+
+function addtask() {
+    var todo = todoInput.value;
+
+    if (!todo) {
+        return;
+    }
+
+    var task = {
+        id: nexttodo++,
+        task: todo,
+        status: false
+    };
+
+    todos.push(task);
+
+    todoInput.value="";
+
+    updatetodoList();
+
+    return task;
+}
+
+function updatetodoList() {
+    if (todos.length === 0) {
+        todolist.innerHTML = `
+            <p style="text-align:center;">
+                List empty.<br>
+                Add a task!
+            </p>
+        `;
+        return;
+    }
+
+    todolist.innerHTML = "To do:";
+
+    todos.forEach(function(todo) {
+
+        var item = document.createElement("div");
+
+        item.className = "todolistitem";
+        item.dataset.id = todo.id;
+
+        item.innerHTML = `
+            <div>
+                <b>${todo.task}</b>
+            </div>
+
+            <div class="todolistbuttons">
+                <button class="completetask">${todo.status ? "☑" : "◻"}</button>
+                <button class="deletetask">×</button>
+            </div>
+        `;
+
+        item.querySelector(".completetask").addEventListener("click", function() {
+            complete(todo.id);
+        });
+
+        item.querySelector(".deletetask").addEventListener("click", function() {
+            deletetask(todo.id);
+        });
+
+        todolist.appendChild(item);
+    });
+}
+
+function deletetask(id) {
+
+    todos = todos.filter(function(todo) {
+        return todo.id !== id;
+    });
+
+    updatetodoList();
+}
+
+function complete(id) {
+  var task = todos.find(function(todo) {
+      return todo.id === id;
+  });
+
+  if (!task) {
+      return;
+  }
+
+  task.status=!task.status;
+
+  updatetodoList();
+}
+
 
 var skel = [
   {
@@ -220,8 +325,8 @@ function addToSideBar(index) {
     });
   sidebar.appendChild(newDiv);}
 
-for (let i = 0; i < content.length; i++) {
-    addToSideBar(i)
+  for (let i = 0; i < content.length; i++) {
+      addToSideBar(i);
 }
 
 function nextSkel() {
