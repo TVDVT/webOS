@@ -16,6 +16,8 @@ var todos=[];
 var todoadd = document.querySelector("#todoadd");
 var nexttodo=0;
 
+updatetodoList();
+
 todoInput.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         addtask();
@@ -51,30 +53,29 @@ function updatetodoList() {
     if (todos.length === 0) {
         todolist.innerHTML = `
             <p style="text-align:center;">
-                List empty.<br>
-                Add a task!
+                Nothing to do?
             </p>
         `;
         return;
     }
 
-    todolist.innerHTML = "To do:";
+    todolist.innerHTML = "";
 
     todos.forEach(function(todo) {
 
         var item = document.createElement("div");
 
-        item.className = "todolistitem";
+        item.className = "todolistitem space-between";
         item.dataset.id = todo.id;
 
         item.innerHTML = `
-            <div>
+            <div style="color:black">
                 <b>${todo.task}</b>
             </div>
 
-            <div class="todolistbuttons">
-                <button class="completetask">${todo.status ? "☑" : "◻"}</button>
-                <button class="deletetask">×</button>
+            <div class="todolistbuttons space-between">
+              <button class="deletetask center">×</button>
+              <button class="completetask center">${todo.status ? "☑" : "◻"}</button>  
             </div>
         `;
 
@@ -374,17 +375,12 @@ function initializeIcon(name) {
 
 function makeClosable(screen) {  
   var closeButton = document.querySelector("#" + screen.id + "close");
-  var openButton = document.querySelector("#" + screen.id + "open");
   if (closeButton) {
     closeButton.addEventListener("click", function () {
       closeWindow(screen);
     });
   }
-  if (openButton) {
-    openButton.addEventListener("click", function () {
-      openWindow(screen);
-    });
-}}
+}
 function dragElement(element) {
   var initialX = 0;
   var initialY = 0;

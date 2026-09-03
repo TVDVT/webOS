@@ -149,26 +149,26 @@ function showCd(id) {
     cdWindow.style.left = "60%";
 
     cdWindow.innerHTML = `
-        <div class="windowheader">
+        <div class="windowheader space-between">
 
             <div>
                 <p>${countdown.event}</p>
             </div>
 
-            <div class="buttons">
-                <div class="closebutton hoverbig"></div>
-                <div class="openbutton hoverbig"></div>
+            <div class="closebutton heart">
+                <img src="./Images/heart.png" alt="Heart" class="normal">
+                <img src="./Images/brokenheart.png" class="hover">
             </div>
 
         </div>
 
         <div class="countdownDisplayContent center">
 
-            <p class="countdownEvent center">
+            <p class="countdownEvent center" style="color:black">
                 ${countdown.event}
             </p>
 
-            <p class="countdownTime">
+            <p class="countdownTime" style="color:black">
                 Loading...
             </p>
 

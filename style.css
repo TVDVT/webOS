@@ -1,6 +1,35 @@
+
+
+a, a:link, a:visited {
+	color:#f68228;
+}
+a:hover, a:active {
+	color:#fff434;
+}
+
+.todolistitem {
+    padding: 7px;
+    background-color: aliceblue;
+    margin:5px;
+    border-radius: 2px;
+}
+
+.deletetask {
+    width: 20px;
+    height :20px;
+    margin:5px;
+}
+
+.completetask {
+    height:20px;
+    width: 20px;
+}
+
 .todolist {
     overflow-y:auto;
+    overflow-x: hidden;
     height:100%;
+    margin-top:10px;
 }
 
 .todomain {
@@ -13,6 +42,7 @@
     cursor: pointer;
     border: solid 1px;
     background-color: aliceblue;
+    color:black;
 }
 
 .space-between {
@@ -35,6 +65,7 @@
 }
 .label {
     text-align: center;
+    color: white;
 }
 
 .case {
@@ -155,6 +186,7 @@
     background-color: white;
     cursor: pointer;
     max-width: 20px;
+    color:black;
 }
 .cdmain {
     padding: 15px;
@@ -225,26 +257,16 @@
 .closebutton {
     cursor: pointer; 
     width:16px; 
-    height:16px;background-color: #EC6B5E; 
+    height:16px;
     border-radius:16px; 
-    border:solid 1px rgba(0,0,0,0.25); 
-    margin-left:6px;
-}
-
-.openbutton {
-    cursor: pointer; 
-    width:16px; 
-    height:16px;background-color: #5eec71; 
-    border-radius:16px; 
-    border:solid 1px rgba(0,0,0,0.25); 
-    margin-left:6px;
+    margin-left:20px;
 }
 
 .window {
     position: absolute;
     border: solid 2px;
     border-radius:16px;
-    background:#D5E7F1;
+    background: black;
     padding:0;
     transform: translate(-50%, -50%);
 }
@@ -258,11 +280,6 @@
     cursor:move;
     border-radius:16px 16px 0 0;
     border-bottom:solid 1px rgba(0,0,0,0.25); 
-}
-
-.buttons {
-    display:flex;
-    justify-content: space-between;
 }
 
 .selected { 
@@ -279,31 +296,30 @@
     width: fit-content;
 }
 
-
 .notesContent {
     display: flex;
     flex-direction: row;
     height: 355px;
 }
 
-
 .notesSidebar {
     width:100%;
     display:flex;
+    height:100%;
     justify-content: center;
     align-items: end;
     padding:10px;
-    background-image: url("./Images/grass.png");
-    background-size: contain;
+    background-image: url("./Images/flowers.png");
+    background-size: cover;
     transition: width 0.5s ease;
 }
 .notesSidebar.compressed{
     padding: 10px;
-    height: auto;
+    height: 100%;
     width:90px;
     background:rgba(124, 147, 165, 0.5);
-    background-image: url("./Images/grass.png");
-    background-size: contain;
+    background-image: url("./Images/flowers.png");
+    background-size: cover;
     border-radius: 0 0 0 16px; 
     border-top:solid 1px rgba(0,0,0,0.25); 
 }
@@ -337,6 +353,7 @@
     width: fit-content;
     padding: 5px 10px;
     cursor:pointer;
+    color:black;
 }
 
 .skeletaleBody {
@@ -381,9 +398,29 @@
     object-fit: contain;
 }
 
+.heart .hover {
+  opacity: 0; 
+}
+
+.heart:hover .hover {
+  opacity: 1; 
+}
+
+.heart:hover .normal {
+  opacity: 0; 
+}
+
+.hover img {
+    height:20px;
+}
+
 .heart img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     object-fit: contain;
-    height: 10px;
+    height: 16px;
+    transition: opacity 0.2s ease;
 }
 
 #heart {
@@ -395,26 +432,22 @@
     transition: top 0.3s, left 0.3s;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 3px;
   border-radius: 16px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 16px;
   height: 125px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #94b0ff;
   border-radius: 16px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }

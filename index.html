@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css" "/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="./undertalefont/undertale.css"/>
   </head>
-  <body style="background-color: #D8F0FB; font-family: DejaVu Sans Mono, monospace; color: #1a237e;margin:20px; background-image: url('https://wallpapers.com/images/hd/thick-white-smoke-aesthetic-light-blue-ysuzkg6v1v2nowtl.jpg'); background-size: cover;">
+  <body class="ut-dialogue" style="background-color: black;margin:20px; background-image: url('./Images/background.png'); background-size: cover;">
     <div class="window" id="welcome" style="width:350px; top:60%; left:70%; height:350px">
 
       <div class="windowheader space-between" id="welcomeheader">
@@ -12,23 +13,24 @@
         </div>
 
         <div class="buttons">
-          <div class="closebutton hoverbig" id="welcomeclose"></div>
-          <div class="openbutton hoverbig" id="welcomeopen"></div>
+          <div class="closebutton heart" id="welcomeclose">
+            <img src="./Images/heart.png" class="normal">
+            <img src="./Images/brokenheart.png" class="hover">
+          </div>
         </div>
       </div>
       <div style="padding:0 20px 20px 20px;">
         <h2>Welcome!</h2>
         <p>I'm Thao Vi!</p>
         <p>I usually spend my days listening to true crime stories while solving puzzles.</p>
-        <p>I don't know if you have noticed, but my favorite color is blue.    I also really enjoy baking! My favorite dessert is macarons :D</p>
       </div>
     </div>
 
     <div id="top" style="height:50px; width:100%; position:absolute; top:0; left:0; box-sizing:border-box; background-color:rgba(43, 69, 90, 0.25); backdrop-filter: blur(5px); color:white;"> 
       <div style="display: flex;align-items: center;justify-content: space-between; height:100%; width:100%;">
         <div style="margin-left:30px;">
-            TVD
-          </div>
+            <p class="ut-stats">CHARA&nbsp;&nbsp;&nbsp;LV 19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HP&nbsp;&nbsp;&nbsp;&nbsp;92 / 92</p>
+        </div>
           <div id="timeElement" style="margin-right:30px; ">
             Time
           </div>
@@ -54,10 +56,11 @@
       <div class="appIcon" id="countdownIcon">
         <img src="./Images/count.png" style="width: 64px; height: 64px; border-radius: 16px;">
         <p style="margin: 0px; color:#2E4659; ">COUNTDOWN</p>
-      </div>
+      </div>  
+
       <div class="appIcon" id="todoIcon">
-        <img src="./Images/count.png" style="width: 64px; height: 64px; border-radius: 16px;">
-        <p style="margin: 0px; color:#2E4659; ">To Do List</p>
+        <img src="./Images/todover3.png" style="width: 64px; height: 64px; border-radius: 16px;">
+        <p style="margin: 0px; color:#2E4659; ">TO DO</p>
       </div>
 
       <div class="appIcon" id="skeletaleIcon">
@@ -72,17 +75,19 @@
           <p>TO DO</p>
         </div>
         <div class="buttons"> 
-          <div class="closebutton hoverbig" id="todoclose"></div>
-          <div class="openbutton hoverbig" id="todoopen"></div>
+          <div class="closebutton heart" id="todoclose">
+            <img src="./Images/heart.png" alt="Heart" class="normal">
+            <img src="./Images/brokenheart.png" class="hover">
+          </div>
         </div>
       </div>
       <div class="todomain">
         <div class="space-between todoheader">
           <input type="text" name="task" placeholder="What do you have to do?" class="todoinput"/>
-          <div id="todoadd">+</div>
+          <div class="ut-chara" id="todoadd">+</div>
         </div> 
         <div class="todolist" id="todolist">
-          To do: 
+
         </div>
       </div>
     </div> 
@@ -93,14 +98,16 @@
           <p>COUNTDOWN</p>
         </div>
         <div class="buttons"> 
-          <div class="closebutton hoverbig" id="countdownclose"></div>
-          <div class="openbutton hoverbig" id="countdownopen"></div>
+          <div class="closebutton heart" id="countdownclose">
+            <img src="./Images/heart.png" alt="Heart" class="normal">
+            <img src="./Images/brokenheart.png" class="hover">
+          </div>
         </div>
       </div>
       <div class="cdmain">
         <div class="cdlist" id="cdlist">
           <div id="cdheader" class="space-between">
-            <div>Add a countdown</div>
+            <div style="color:black;">Add a countdown</div>
             <div id="showadd" title="Add Countdown">
               +
             </div>
@@ -108,11 +115,11 @@
         <div class="newcd no" id="newcd">
           <p style="text-align:center"> Set New Countdown </p>
           <input type="text" name="event" placeholder="Event" class="eventinput"/>
-          <div class="buttons" id="inputs">
+          <div class="buttons space-between" id="inputs">
             <input type="date" name="date" class="dateinput"/>
             <input type="time" name="time" class="timeinput"/>
           </div>
-          <div class="buttons">
+          <div class="buttons space-between">
             <div class="dropdown">
               <button class="dropbtn">Precision</button>
               <div class="dropdown-content">
@@ -142,8 +149,10 @@
         </div>
 
         <div class="buttons">
-          <div class="closebutton hoverbig" id="notesclose"></div>
-          <div class="openbutton hoverbig" id="notesopen"></div>
+          <div class="closebutton heart" id="notesclose">
+            <img src="./Images/heart.png" alt="Heart" class="normal">
+            <img src="./Images/brokenheart.png" class="hover">
+          </div>
         </div>
         </div>
           <div class="notesContent">
@@ -161,9 +170,9 @@
             <p>SKELETALE</p>
           </div>
           <div class="buttonContainer center"> 
-            <div class="buttons">
-                <div class="closebutton hoverbig" id="skeletaleclose"></div>
-                <div class="openbutton hoverbig" id="skeletaleopen"></div>
+            <div class="closebutton heart" id="skeletaleclose">
+              <img src="./Images/heart.png" alt="Heart" class="normal">
+              <img src="./Images/brokenheart.png" class="hover">
             </div>
           </div>
       </div>
@@ -172,8 +181,7 @@
           <div class="skeletaleContent" id="skeletaleContent" style="padding:0 20px 20px 20px;"></div>
           <div class="skeletonImage no" id="skeletonImage">
             <img src="./Images/skeleton no bg.png" alt="Skeleton">
-            <div class="heart" 
-            id="heart"> 
+            <div id="heart"> 
               <img src="./Images/heart.png" alt="Heart">
             </div>
           </div>
