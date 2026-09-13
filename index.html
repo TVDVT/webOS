@@ -51,25 +51,25 @@
     <div id="desktopApps">
       <div class="appIcon" id="notesIcon">
         <img src="./Images/notes.png" style="width: 64px; height: 64px; border-radius: 16px;">
-        <p style="margin: 0px;; ">TrueNotes</p>
+        <p style="margin: 0px; ">TrueNotes</p>
       </div>
       <div class="appIcon" id="countdownIcon">
         <img src="./Images/count.png" style="width: 64px; height: 64px; border-radius: 16px;">
-        <p style="margin: 0px;; ">COUNTDOWN</p>
+        <p style="margin: 0px; ">COUNTDOWN</p>
       </div>  
 
       <div class="appIcon" id="todoIcon">
         <img src="./Images/todover3.png" style="width: 64px; height: 64px; border-radius: 16px;">
-        <p style="margin: 0px;; ">TO DO</p>
+        <p style="margin: 0px; ">TO DO</p>
       </div>
 
       <div class="appIcon" id="skeletaleIcon">
         <img src="./Images/skeletale.png" style="width: 64px; height: 64px; border-radius: 16px;">
-        <p style="margin: 0px;; ">Skeletale</p>
+        <p style="margin: 0px; ">Skeletale</p>
       </div>
     </div> 
 
-    <div class="window" id="todo" style="overflow:hidden; top:50%; left:30%; width:250px; height:300px;">
+    <div class="window" id="todo" style=" display:none; overflow:hidden; top:50%; left:30%; width:250px; height:300px;">
       <div class="windowheader space-between" id="todoheader">
         <div>
           <p>TO DO</p>
@@ -106,32 +106,35 @@
       </div>
       <div class="cdmain">
         <div class="cdlist" id="cdlist">
-          <div id="cdheader" class="space-between">
-            <div style="color:black;">Add a countdown</div>
-            <div id="showadd" title="Add Countdown">
-              +
+          <div id="cdheader">
+            <div class="space-between">
+              <div style="color:black;">Add a countdown</div>
+              <div id="showadd" title="Add Countdown">+</div>
             </div>
-          </div>
-        <div class="newcd no" id="newcd">
-          <p style="text-align:center"> Set New Countdown </p>
-          <input type="text" name="event" placeholder="Event" class="eventinput"/>
-          <div class="buttons space-between" id="inputs">
-            <input type="date" name="date" class="dateinput"/>
-            <input type="time" name="time" class="timeinput"/>
-          </div>
-          <div class="buttons space-between">
-            <div class="dropdown">
-              <button class="dropbtn">Precision</button>
-              <div class="dropdown-content">
-                <a id="day">Day</a>
-                <a id="hour">Hour</a>
-                <a id="minute">Minute</a>
-                <a id="second">Second</a>
+
+          
+            <div class="newcd no" id="newcd">
+              <input type="text" name="event" placeholder="Event" class="eventinput"/>
+              <div class="buttons space-between" id="inputs">
+                <input type="date" name="date" class="dateinput"/>
+                <input type="time" name="time" class="timeinput"/>
+            </div>
+
+            <div class="buttons space-between">
+              <div class="dropdown">
+                <button class="dropbtn">Precision</button>
+                <div class="dropdown-content">
+                  <a id="day">Day</a>
+                  <a id="hour">Hour</a>
+                  <a id="minute">Minute</a>
+                  <a id="second">Second</a>
+                </div>
               </div>
+              <div class="dropbtn hoverbig" id="addbutton">ADD</div>
             </div>
-            <div class="dropbtn hoverbig" id="addbutton">ADD</div>
+            </div> 
           </div>
-        </div>
+
           <div id="list">
             <div>Your Countdowns</div>
             <!-- cd name - show - edit -->
@@ -187,10 +190,10 @@
           </div>
         </div>
           <div class="buttonContainer center">
-            <div class="button no hoverbig" id="backbutton" onclick="backSkel()">
+            <div class="button no hoverbig select-none" id="backbutton" onclick="backSkel()">
             < BACK
             </div>
-            <div class="button hoverbig" id="nextbutton" onclick="nextSkel()">
+            <div class="button hoverbig select-none" id="nextbutton" onclick="nextSkel()">
             NEXT >
             </div>
           </div>

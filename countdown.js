@@ -178,16 +178,10 @@ function showCd(id) {
     document.body.appendChild(cdWindow);
 
     var closeButton = cdWindow.querySelector(".closebutton");
-    var openButton = cdWindow.querySelector(".openbutton");
 
     closeButton.addEventListener("click", function(e) {
         e.stopPropagation();
         cdWindow.style.display = "none";
-    });
-
-    openButton.addEventListener("click", function(e) {
-        e.stopPropagation();
-        cdWindow.style.display = "block";
     });
 
     dragElement(cdWindow);
@@ -260,7 +254,7 @@ function updateDisplay(cdWindow, countdown) {
     if (distance <= 0) {
 
         cdWindow.querySelector(".countdownTime").innerHTML =
-            "EXPIRED";
+            '<div style="white">EXPIRED</div>';
 
         return;
     }

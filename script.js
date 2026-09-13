@@ -53,7 +53,8 @@ function updatetodoList() {
     if (todos.length === 0) {
         todolist.innerHTML = `
             <p style="text-align:center;">
-                Nothing to do?
+              Empty. </br>  
+              Nothing to do?
             </p>
         `;
         return;
@@ -66,6 +67,10 @@ function updatetodoList() {
         var item = document.createElement("div");
 
         item.className = "todolistitem space-between";
+
+        if (todo.status) {
+          item.classList.add("done");
+        }
         item.dataset.id = todo.id;
 
         item.innerHTML = `
@@ -171,7 +176,8 @@ var skel = [
    I like listening to indie pop like BoyWithUke and d4vd until...
    BUT D4vd songs are so good I can't bring myself to stop listening to it...
    My playlist is very random I can't really pinpoint any main genre, though I do enjoy listening to The Neighbourhood.
-      
+   To study I play Undertale soundtrack to not get distracted by lyrics, although I do get sometimes distracted by the good melody.
+   I'll have the chance to go see their live symphony I'm super excited!   
    </p>
    ` 
   },
@@ -212,9 +218,13 @@ var skel = [
    content:`
    <h2>Hands</h2>
    <p>
-   These hand of mine love to craft and bake.
-   I especially like to crochet, solve puzzles and build LEGO sets!
-   As for baking, my specialty are choux à la crème!
+   These hand of mine love to : <br>
+   - craft <br>
+   - bake <br>
+   - crochet <br>
+   - solve puzzles <br>
+   - build with LEGOs
+
    </p>
    ` 
   },
@@ -225,10 +235,13 @@ var skel = [
    content:`
    <h2>Feet</h2>
    <p>
-   These feet of mine have touched the ground of France, Viet Nam, Canada and Qatar!
-   I am actually Vietnamese, born in France and currently living in Canada.
-   I occasionally travel back to Viet Nam and had a layover in Qatar. I celebrated New Year there!
-   In high school I was in a Spanish program and in grade 10, I got the chance to travel to Spain with my class. I really enjoyed it!!
+   These feet of mine have touched the ground of : <br>
+   - France <br>
+   - Viet Nam <br>
+   - Canada <br>
+   - United States <br>
+   - Spain <br>
+   - Qatar  
    </p>
    ` 
   },
@@ -246,23 +259,21 @@ var content = [
     `
   },
   {
-    title:"Itaewon Tragedy",
+    title:"The Nth rooms",
     date: "23/06/2026",
     content:`
-    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
-    <p>badabim badaboom (iykyk)</p>
-    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
-    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=PZ0vGxTpasM&pp=ygUVcm90dGVuIG1hbmdvIG50aCByb29t0gcJCf4LAYcqIYzv">Nth rooms</a></h2>
+    <p>This was quite traumatizing for me when I was younger. The atrocities she described were so heart wrenching I started to fear the Internet.</p>
+    <p>The number of victims but also of perpretators really made me question life.</p>
     `
   },
     {
-    title:"e",
+    title:"Sewol Ferry Tragedy",
     date: "23/06/2026",
     content:`
-    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
-    <p>badabim badaboom (iykyk)</p>
-    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
-    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=VMs5bTRjjeI">Sewol Ferry Tragedy</a></h2>
+    <p>I watched this tragedy after the Itaewon tragedy and it wasn't a very good idea.</p>
+    <p>The fact that this was evitable made me so mad ugh. You should really watch it.</p>
     `
   },
   {
