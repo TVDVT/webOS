@@ -1,3 +1,10 @@
+#addbutton {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+
+
 select-none {
     -webkit-user-select: none; 
     -moz-user-select: none; 
@@ -121,8 +128,16 @@ a:hover, a:active {
 }
 
 .newcd {
-    margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #dbeaff;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #94b0ff;
+  margin-top: 8px;
 }
+
 #list {
     flex:1;
     overflow-y: auto;
@@ -145,16 +160,8 @@ a:hover, a:active {
     font-size: 16px;
 }
 
-#inputs {
-    margin:0px 0px 5px 0;
-}
 .dateinput {
     border-radius: 4px;
-}
-
-.dateinput::content{
-    font-family:"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
-    font-size: 16px;
 }
 
 .eventinput{
@@ -179,7 +186,7 @@ a:hover, a:active {
     border-radius: 8px;
 }
 .cdmain {
-    padding: 10px;
+    padding: 15px;
     height: calc(100% - 45px);
     box-sizing: border-box;
     overflow-y: auto;
@@ -226,6 +233,48 @@ a:hover, a:active {
     padding: 5px;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 11px;
+  color: #2b455a;
+  font-weight: bold;
+}
+
+.form-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.alignment-center {
+  align-items: center;
+  margin-top: 4px;
+}
+
+.cd-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid #7c93a5;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-family: "Determination Sans", "Determination Mono", monospace;
+  font-size: 14px;
+  color: #000;
+}
+
+.cd-input:focus {
+  outline: none;
+  border-color: #2b455a;
+  box-shadow: 0 0 2px #2b455a;
+}
+
 #showadd {
     border: solid 1px rgb(199, 196, 196);
     font-size: 24px;
@@ -237,19 +286,16 @@ a:hover, a:active {
     max-height: 20px;
     color:black;
 }
-.cdmain {
-    padding: 15px;
-}
 
 .dropbtn {
   background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 7px;
-  font-family:"Determination Mono","Determination Sans","8-bit Operator","FixedSys","Courier New",monospace;
+  color: #000;
+  padding: 6px 10px;
+  font-family: "Determination Mono", monospace;
   font-size: 12px;
-  border: solid 1px gray;
+  border: 1px solid #7c93a5;
   border-radius: 4px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -397,7 +443,8 @@ a:hover, a:active {
     top: 60px;
     left: 20px;
 
-    display: column;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
 }
 

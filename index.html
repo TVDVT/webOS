@@ -114,33 +114,41 @@
 
           
             <div class="newcd no" id="newcd">
-              <input type="text" name="event" placeholder="Event" class="eventinput"/>
-              <div class="buttons space-between" id="inputs">
-                <input type="date" name="date" class="dateinput"/>
-                <input type="time" name="time" class="timeinput"/>
-            </div>
-
-            <div class="buttons space-between">
-              <div class="dropdown">
-                <button class="dropbtn">Precision</button>
-                <div class="dropdown-content">
-                  <a id="day">Day</a>
-                  <a id="hour">Hour</a>
-                  <a id="minute">Minute</a>
-                  <a id="second">Second</a>
-                </div>
+              <div class="form-group">
+                <label for="eventinput">Event Name</label>
+                <input type="text" id="eventinput" name="event" placeholder="Event" class="cd-input eventinput"/>
               </div>
-              <div class="dropbtn hoverbig" id="addbutton">ADD</div>
+
+              <div class="form-row">
+                  <div class="form-group">
+                    <label for="dateinput">Date</label>
+                    <input type="date" id="dateinput" name="date" class="cd-input dateinput"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="timeinput">Time</label>
+                    <input type="time" id="timeinput" name="time" class="cd-input timeinput"/>
+                  </div>
+              </div>
+            
+
+              <div class="form-row space-between alignment-center">
+                  <div class="dropdown">
+                    <button type="button" class="dropbtn" id="precisionBtn">Precision: Second</button>
+                    <div class="dropdown-content">
+                      <a id="day">Day</a>
+                      <a id="hour">Hour</a>
+                      <a id="minute">Minute</a>
+                      <a id="second">Second</a>
+                    </div>
+                  </div>
+                  <button type="button" class="dropbtn hoverbig" id="addbutton">ADD</button>
+              </div>
             </div>
-            </div> 
-          </div>
+          </div> 
 
           <div id="list">
             <div>Your Countdowns</div>
-            <!-- cd name - show - edit -->
           </div>
-        </div>
-        <div class="cd">
         </div>
       </div>
     </div> 

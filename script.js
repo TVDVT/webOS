@@ -207,7 +207,7 @@ var skel = [
    Once in Canada, in primary school, I was in my school's circus troop, it was super fun!
    In highschool, I joined the flag-football and won regionals with my team in grade 10!
    In college, I tried doing a bit of dragon boating, but it was not really for me so I quit..
-   I am now a Summer camp bike instructor!
+   I was a Summer camp bike instructor last summer and this semester, I am taking an intensive cycling course. It made me realize that my cardio is quite terrible.
    </p>
    ` 
   },
@@ -249,14 +249,11 @@ var skel = [
 
 var content = [
   {
-    title:"Hello Kitty",
+    title:"Hello Kitty Murder",
     date: "23/06/2026",
     content:`
     <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
-    <p>badabim badaboom (iykyk)</p>
-    <p>I think this was the first or second video I ever watched from Rotten Mango. It's not really a crime story, but it had many casualities.</p>
-    <p>I remember seeing this event on the news but the way Stephanie Soo (the host) tells the story makes it feel way more real, which is why I love her storytelling.</p>
-    `
+    <p>I listened to both Liv's and Rotten Mango's account of this murder and it was pretty gruesome ngl.</p>`
   },
   {
     title:"The Nth rooms",
