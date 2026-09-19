@@ -40,6 +40,7 @@ JavaScript, CSS, HTML
 ## Future plans
 - Undertale music player
 - An intro page (WIP) where you can chose your character and background image.
+- Make the notes apps more interactive by making the user add their own notes
 
 # Undertale references
 The close button is a heart and it breaks when you hover on it to close the window! 
