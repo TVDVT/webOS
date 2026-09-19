@@ -1,11 +1,26 @@
+body {
+    cursor:default
+}
+
+button, 
+.dropbtn, 
+.closebutton, 
+.appIcon, 
+.hoverbig, 
+#showadd, 
+#todoadd {
+    cursor: pointer;
+}
+
 #addbutton {
   background-color: #ffffff;
   font-weight: bold;
+  height:30px;
 }
 
 
 
-select-none {
+.select-none {
     -webkit-user-select: none; 
     -moz-user-select: none; 
     -ms-user-select: none; 
@@ -66,7 +81,6 @@ a:hover, a:active {
 #todoadd {
     border-radius: 8px;
     padding: 0 4px;
-    cursor: pointer;
     border: solid 1px;
     background-color: aliceblue;
     color:black;
@@ -131,7 +145,7 @@ a:hover, a:active {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background-color: #dbeaff;
+  background-color: #c3c6c9;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #94b0ff;
@@ -139,10 +153,11 @@ a:hover, a:active {
 }
 
 #list {
-    flex:1;
+    min-height: 0;
+    flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 5x;
+    padding: 5xp;
 }
 
 .todoinput {
@@ -164,10 +179,6 @@ a:hover, a:active {
     border-radius: 4px;
 }
 
-.eventinput{
-    width: 198px;
-    margin: 10px 0;
-}
 
 .eventinput ::placeholder{
     font-family:"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
@@ -178,19 +189,34 @@ a:hover, a:active {
     background: rgba(255,255,255,0.5);
 }
 
+.cdlist {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+}
+
 .cdListItem {
-    gap: 8px;
-    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+    padding: 10px;
     margin-bottom: 8px;
-    background: rgba(255,255,255,0.35);
+
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(43,69,90,0.15);
     border-radius: 8px;
 }
 .cdmain {
     padding: 15px;
     height: calc(100% - 45px);
     box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
 }
 .cdListInfo {
     display: flex;
@@ -210,26 +236,34 @@ a:hover, a:active {
 
 .cdListButtons {
     display: flex;
-    gap: 3px;
+    gap: 4px;
+    flex-shrink: 0;
 }
 
-.cdListButtons button {
+.cdListButtons button { 
     border: 1px solid rgba(0,0,0,0.25);
-    border-radius: 6px;
+    border-radius: 5px;
     background: mintcream;
-    cursor: pointer;
     font-family: inherit;
-    font-size: 9px;
-    padding: 4px;
+    font-size: 11px;
+    padding: 5px 6px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.1s;
 }
+.countdownListTitle {
+    font-weight: bold;
+    color: #2b455a;
 
+    margin: 10px 5px 8px;
+}
 .cdListButtons button:hover {
     background: white;
+    transform: scale(1.05);
 }
 #cdheader {
     margin-bottom: 15px;
     border-radius: 4px;
-    background-color: aliceblue;
+    background-color: white;
     padding: 5px;
 }
 
@@ -241,9 +275,10 @@ a:hover, a:active {
 }
 
 .form-group label {
-  font-size: 11px;
+  font-size: 13px;
   color: #2b455a;
   font-weight: bold;
+  padding: 0 5px;
 }
 
 .form-row {
@@ -260,9 +295,10 @@ a:hover, a:active {
 .cd-input {
   box-sizing: border-box;
   width: 100%;
-  padding: 5px 7px;
+  height: 30px;
+  padding: 5px 8px;
   border: 1px solid #7c93a5;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: #ffffff;
   font-family: "Determination Sans", "Determination Mono", monospace;
   font-size: 14px;
@@ -281,7 +317,6 @@ a:hover, a:active {
     border-radius: 8px;
     padding: 4px 4px 8px 8px; 
     background-color: white;
-    cursor: pointer;
     max-width: 20px;
     max-height: 20px;
     color:black;
@@ -295,7 +330,7 @@ a:hover, a:active {
   font-size: 12px;
   border: 1px solid #7c93a5;
   border-radius: 4px;
-  cursor: pointer;
+  height:30px;
 }
 
 .dropdown {
@@ -317,8 +352,7 @@ a:hover, a:active {
   padding: 10px 12px;
   text-decoration: none;
   display: block;
-  cursor: pointer;
-  height:20px;
+  height:17px;
   font-size: 16px;
 }
 
@@ -338,6 +372,10 @@ a:hover, a:active {
 
 .footprints {
     margin-bottom:5px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.694);
+    border-radius: 50%;
+    display: inline-block;
 }
 .footprints.left {
     transform: translateX(-15px);
@@ -353,7 +391,6 @@ a:hover, a:active {
     margin: 5px;
 }
 .closebutton {
-    cursor: pointer; 
     width:16px; 
     height:16px;
     border-radius:16px; 
@@ -369,6 +406,17 @@ a:hover, a:active {
     transform: translate(-50%, -50%);
 }
 
+#top {
+    height:50px;
+    width:100%; 
+    position:absolute; 
+    top:0; left:0; 
+    box-sizing:border-box; 
+    background-color:rgba(218, 237, 253, 0.25); 
+    backdrop-filter: blur(5px); 
+    color:white;
+}
+
 .windowheader {
     height:17px;
     margin:0;
@@ -382,14 +430,13 @@ a:hover, a:active {
 
 .selected { 
     background-color: rgba(143, 220, 250, 0.215);
-    height:80px
+    height:100%
 }
 
 .appIcon {
     color:white;
     text-align: center;
     border-radius: 8px;
-    cursor: pointer;
     padding: 16px; 
     filter: drop-shadow(0 0 8px white); 
     width: 100px;
@@ -454,7 +501,6 @@ a:hover, a:active {
     background-color: mintcream;
     width: fit-content;
     padding: 5px 10px;
-    cursor:pointer;
     color:black;
 }
 

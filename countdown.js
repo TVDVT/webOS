@@ -16,6 +16,7 @@ var addButton = document.querySelector("#addbutton");
 var countdowns = [];
 var nextCountdownId = 0;
 var selectedPrecision = "second";
+var precisionBtn = document.querySelector("#precisionBtn");
 
 updateCdList();
 showadd.addEventListener("click", function() {
@@ -30,18 +31,22 @@ showadd.addEventListener("click", function() {
 
 dayButton.addEventListener("click", function() {
     selectedPrecision = "day";
+    precisionBtn.textContent = "Precision: Day ▼"
 });
 
 hourButton.addEventListener("click", function() {
     selectedPrecision = "hour";
+    precisionBtn.textContent = "Precision: Hour ▼"
 });
 
 minuteButton.addEventListener("click", function() {
     selectedPrecision = "minute";
+    precisionBtn.textContent = "Precision: Minute ▼"
 });
 
 secondButton.addEventListener("click", function() {
     selectedPrecision = "second";
+    precisionBtn.textContent = "Precision: Second ▼"
 });
 
 function addCd() {
@@ -51,6 +56,7 @@ function addCd() {
     var event = eventInput.value;
 
     if (!date || !time || !event) {
+        alert("Please fill out all fields before adding a countdown!")
         return;
     }
 
@@ -191,6 +197,7 @@ function showCd(id) {
     updateDisplay(cdWindow, countdown);
 }
 
+var textup =document.querySelector("#textup");
 var editingId = null;
 function editCd(id) {
 
@@ -211,11 +218,14 @@ function editCd(id) {
     eventInput.value = countdown.event;
 
     selectedPrecision = countdown.precision;
-
+    textup.textContent = "Edit Cooldown";
     addButton.textContent = "UPDATE";
 }
 
 function deleteCd(id) {
+    if (!confirm("Are you sure you want to delete this countdown?")) {
+        return;
+    }
 
     countdowns = countdowns.filter(function(cd) {
         return cd.id !== id;
@@ -254,7 +264,7 @@ function updateDisplay(cdWindow, countdown) {
     if (distance <= 0) {
 
         cdWindow.querySelector(".countdownTime").innerHTML =
-            '<div style="white">EXPIRED</div>';
+            '<div style="color:white">EXPIRED</div>';
 
         return;
     }

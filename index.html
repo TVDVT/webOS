@@ -4,8 +4,8 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="stylesheet" type="text/css" href="./undertalefont/undertale.css"/>
   </head>
-  <body class="ut-dialogue" style="background-color: black;margin:20px; background-image: url('./Images/background.png'); background-size: cover;">
-    <div class="window" id="welcome" style="width:350px; top:60%; left:70%; height:350px">
+  <body class="ut-dialogue" style="background-color: black;margin:20px; ">
+    <div class="window" id="welcome" style="width:350px; top:55%; left:65%; height:350px">
 
       <div class="windowheader space-between" id="welcomeheader">
         <div>
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div id="top" style="height:50px; width:100%; position:absolute; top:0; left:0; box-sizing:border-box; background-color:rgba(43, 69, 90, 0.25); backdrop-filter: blur(5px); color:white;"> 
+    <div id="top"> 
       <div style="display: flex;align-items: center;justify-content: space-between; height:100%; width:100%;">
         <div style="margin-left:30px;">
             <p class="ut-stats">CHARA&nbsp;&nbsp;&nbsp;LV 19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HP&nbsp;&nbsp;&nbsp;&nbsp;92 / 92</p>
@@ -69,7 +69,7 @@
       </div>
     </div> 
 
-    <div class="window" id="todo" style=" display:none; overflow:hidden; top:50%; left:30%; width:250px; height:300px;">
+    <div class="window" id="todo" style=" display:none; overflow:hidden; top:35%; left:25%; width:250px; height:300px;">
       <div class="windowheader space-between" id="todoheader">
         <div>
           <p>TO DO</p>
@@ -92,7 +92,7 @@
       </div>
     </div> 
 
-    <div class="window" id="countdown" style="display:none; top:40%; left:30%; width:250px; height:300px;">
+    <div class="window" id="countdown" style="display:none; top:40%; left:30%; width:320px; height:380px;">
       <div class="windowheader space-between" id="countdownheader">
         <div>
           <p>COUNTDOWN</p>
@@ -108,7 +108,7 @@
         <div class="cdlist" id="cdlist">
           <div id="cdheader">
             <div class="space-between">
-              <div style="color:black;">Add a countdown</div>
+              <div id="textup" style="color:black; padding: 5px">Add a countdown</div>
               <div id="showadd" title="Add Countdown">+</div>
             </div>
 
@@ -133,7 +133,7 @@
 
               <div class="form-row space-between alignment-center">
                   <div class="dropdown">
-                    <button type="button" class="dropbtn" id="precisionBtn">Precision: Second</button>
+                    <button type="button" class="dropbtn" id="precisionBtn">Precision: Second ▼</button>
                     <div class="dropdown-content">
                       <a id="day">Day</a>
                       <a id="hour">Hour</a>
@@ -141,19 +141,19 @@
                       <a id="second">Second</a>
                     </div>
                   </div>
-                  <button type="button" class="dropbtn hoverbig" id="addbutton">ADD</button>
+                  <button type="button" class="dropbtn" id="addbutton">ADD</button>
               </div>
             </div>
           </div> 
 
           <div id="list">
-            <div>Your Countdowns</div>
+            <div class="countdownListTitle">Your Countdowns</div>
           </div>
         </div>
       </div>
     </div> 
 
-    <div class="window" id="notes" style=" top:40%; left:30%; width:500px; height:400px; display:none;">
+    <div class="window" id="notes" style=" top:40%; left:45%; width:500px; height:400px; display:none;">
       <div class="windowheader space-between" id="notesheader">
         <div>
           <p>TRUENOTES</p>
@@ -175,7 +175,7 @@
             <div class="notesMain no" id="notesContent" ></div>
           </div>
     </div>
-    <div class="window" id="skeletale" style=" top:50%; left:30%; display:none; width:550px; height:530px;">
+    <div class="window" id="skeletale" style=" top:45%; left:50%; display:none; width:550px; height:530px;">
       <div class="windowheader space-between" id="skeletaleheader">
           <div>
             <p>SKELETALE</p>

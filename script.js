@@ -1,5 +1,4 @@
 var biggestIndex=1;
-var selectedIcon = undefined;
 var topBar=document.querySelector("#top");setupWindow("welcome");
 setupWindow("skeletale");
 setupWindow("notes");
@@ -97,12 +96,15 @@ function updatetodoList() {
 }
 
 function deletetask(id) {
+  if (!confirm("Delete this task?")) {
+    return;
+  }
 
-    todos = todos.filter(function(todo) {
-        return todo.id !== id;
-    });
+  todos = todos.filter(function(todo) {
+    return todo.id !== id;
+  });
 
-    updatetodoList();
+  updatetodoList();
 }
 
 function complete(id) {
@@ -252,15 +254,15 @@ var content = [
     title:"Hello Kitty Murder",
     date: "23/06/2026",
     content:`
-    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=F3sIDvFh3Os&pp=ygUUaXRhZXdvbiByb3R0ZW4gbWFuZ28%3D">Itaewon Tragedy</a></h2>
-    <p>I listened to both Liv's and Rotten Mango's account of this murder and it was pretty gruesome ngl.</p>`
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=c-AiJvGFeQA&pp=ygUPbGl2IGhlbGxvIGtpdHR5">Hello Kitty Murder</a></h2>
+    <p>I listened to both Liv's and Rotten Mango's account of this murder and it was pretty gruesome ngl. I think Liv's video was one of my first actual true crime stories!</p>`
   },
   {
     title:"The Nth rooms",
     date: "23/06/2026",
     content:`
     <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=PZ0vGxTpasM&pp=ygUVcm90dGVuIG1hbmdvIG50aCByb29t0gcJCf4LAYcqIYzv">Nth rooms</a></h2>
-    <p>This was quite traumatizing for me when I was younger. The atrocities she described were so heart wrenching I started to fear the Internet.</p>
+    <p>This was quite traumatizing for me when I was younger. The atrocities she described were so heart wrenching I started to fear the Internet, you never know what's on there.</p>
     <p>The number of victims but also of perpretators really made me question life.</p>
     `
   },
@@ -270,7 +272,7 @@ var content = [
     content:`
     <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=VMs5bTRjjeI">Sewol Ferry Tragedy</a></h2>
     <p>I watched this tragedy after the Itaewon tragedy and it wasn't a very good idea.</p>
-    <p>The fact that this was evitable made me so mad ugh. You should really watch it.</p>
+    <p>The fact that this was evitable made me so mad ugh. The included recordings are very hard to listen to.</p>
     `
   },
   {
@@ -286,8 +288,8 @@ var content = [
   {
     title: "Real Life Squid Game",
     content:`
-    <h2>Real Life Squid Game</h2>
-    <p>I really liked this one because I had just finished the second season and was eagerly waiting for the third one. Hearing stories like this really make me grateful to have the life I have right now.</p>`
+    <h2><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=wNN1D_E6vjI&pp=ygUXcm90dGVuIG1hbmdvIHNxdWlkIGdhbWU%3D">Real Life Squid game</a></h2>
+    <p>I really liked this one because I had just finished Squid Game's second season and was eagerly waiting for the third one. Hearing stories like this really make me grateful to have the life I have right now.</p>`
   },
   {
     title:"About",
@@ -445,7 +447,6 @@ function selectIcon(element) {
 
 function deselectIcon(element) {
   element.classList.remove("selected")
-  selectedIcon = undefined
 }
 
 function HandleIconTap(element, screen) {
