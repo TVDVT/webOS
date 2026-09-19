@@ -69,7 +69,7 @@ function addCd() {
     };
 
     countdowns.push(countdown);
-
+    textup.textContent = "Edit Cooldown";
     updateCdList();
 
     return countdown;
@@ -370,7 +370,7 @@ addButton.addEventListener("click", function() {
 
         editingId = null;
         addButton.textContent = "ADD";
-
+        textup.textContent = "Add a Countdown";
         newcd.classList.add("no");
         clearForm();
 
@@ -386,6 +386,8 @@ addButton.addEventListener("click", function() {
         newcd.classList.add("no");
 
         clearForm();
+
+        textup.textContent = "Edit Cooldown";
     }
 });
 
